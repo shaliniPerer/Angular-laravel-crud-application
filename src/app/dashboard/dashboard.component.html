@@ -1,0 +1,42 @@
+<div class="container mt-4">
+  <h1>Users</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Username</th>
+        <th scope="col">Status</th>
+        <th scope="col">Image</th>
+        <th scope="col">Option</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userArray">
+        <th scope="row">{{ user.id }}</th>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.status }}</td>
+        <td>
+          <img
+            *ngIf="user.profile_image"
+            [src]="user.profile_image"
+            alt="Profile"
+            width="50"
+          />
+        </td>
+        <td>
+          <button class="btn btn-success" (click)="setUpdate(user)">
+            Edit
+          </button>
+          <button class="btn btn-danger" (click)="setDelete(user)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
